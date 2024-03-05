@@ -237,11 +237,8 @@
                 method: 'PATCH',
                 body: JSON.stringify(user)
             })
-            .then(response => response.json())
-            .then(commits => {
-                getUsers(commits)
-                drawAdminTable()
-            })
+            .then(response => response)
+            .then(commits => loadUsers());
     }
 
     function deleteUser(index){
@@ -281,15 +278,11 @@
         let url = '/admin/delete'
         fetch(url,
             {
-
                 method: 'DELETE',
                 body: id.toString()
             })
-            .then(response => response.json())
-            .then(commits => {
-                getUsers(commits)
-                drawAdminTable()
-            })
+            .then(response => response)
+            .then(commits => loadUsers());
     }
 
     async function loadRoles(){

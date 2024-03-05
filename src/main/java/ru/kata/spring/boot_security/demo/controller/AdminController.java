@@ -41,14 +41,12 @@ public class AdminController {
     }
 
     @PatchMapping("/update")
-    public List<UserDto> saveUser(@RequestBody String userJsonString) {
+    public void saveUser(@RequestBody String userJsonString) {
         userService.updateUser(userJsonString);
-        return userService.getAllUsers();
     }
 
     @DeleteMapping("/delete")
-    public List<UserDto> deleteUser(@RequestBody String stringId) {
+    public void deleteUser(@RequestBody String stringId) {
         userService.deleteUser(stringId);
-        return getAllUsers();
     }
 }
